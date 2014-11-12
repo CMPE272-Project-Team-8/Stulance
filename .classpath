@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_20">
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
-		<attributes>
-			<attribute name="owner.project.facets" value="jst.web"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.cloudfoundry.appcloudserver.classPathProvider/Cloud Foundry (Runtime) v1.0"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/com.ibm.ws.st.core.runtimeClasspathProvider/WebSphere Application Server V8.5 Liberty Profile"/>
+	<classpathentry kind="lib" path="dep-jar/com.ibm.ws.javaee.persistence.2.0_1.0.1.jar"/>
+	<classpathentry kind="lib" path="dep-jar/com.ibm.ws.javaee.jaxrs.1.1_1.0.1.jar"/>
+	<classpathentry kind="lib" path="dep-jar/com.ibm.ws.javaee.transaction.1.1_1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/workspace/mysql-connector-java-5.1.33/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/ecj-4.2.2.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-i18n-ja.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-jdbc.jar"/>
+	<classpathentry kind="lib" path="E:/xampp/tomcat/lib/tomcat-util.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

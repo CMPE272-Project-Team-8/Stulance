@@ -13,10 +13,10 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/Stulance/forwards/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://stulance.mybluemix.net/forwards/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/Stulance/forwards/css/shop-homepage.css" rel="stylesheet">
+    <link href="http://stulance.mybluemix.net/forwards/css/shop-homepage.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -159,10 +159,10 @@
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="/Stulance/forwards/js/jquery-1.11.0.js"></script>
+    <script src="http://stulance.mybluemix.net/forwards/js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/Stulance/forwards/js/bootstrap.min.js"></script>
+    <script src="http://stulance.mybluemix.net/forwards/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -9,5 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- 
+ 	<servlet>
+	    <description>Login Servlet</description>
+	    <servlet-name>Login</servlet-name>
+	    <servlet-class>Package.Login</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Login</servlet-name>
+	    <url-pattern>/validate</url-pattern>
+  	</servlet-mapping>
 </web-app>

@@ -13,13 +13,13 @@
     <title>Freelancer </title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="/Stulance/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://stulance.mybluemix.net/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/Stulance/css/freelancer.css" rel="stylesheet">
+    <link href="http://stulance.mybluemix.net/css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/Stulance/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://stulance.mybluemix.net/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="/Stulance/img/profile.png" alt="">
+                    <img class="img-responsive" src="http://stulance.mybluemix.net/img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">Start Bootstrap</span>
                         <hr class="star-light">
@@ -115,7 +115,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/cabin.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cabin.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -125,7 +125,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/cake.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cake.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -135,7 +135,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/circus.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/circus.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -145,7 +145,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/game.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/game.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -155,7 +155,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/safe.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/safe.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -165,7 +165,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/submarine.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/cabin.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cabin.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -199,7 +199,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/cake.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cake.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -209,7 +209,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/circus.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/circus.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -219,7 +219,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/game.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/game.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -229,7 +229,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/safe.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/safe.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -239,7 +239,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="/Stulance/img/portfolio/submarine.png" class="img-responsive" alt="">
+                        <img src="http://stulance.mybluemix.net/img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -263,18 +263,18 @@
                 <div class="col-lg-5 col-lg-offset-1">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" action='validate'>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>username</label>
-                                <input type="text" class="form-control" placeholder="User Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" name="username" placeholder="User Name" id="name" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>password</label>
-                                <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please enter your email address.">
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="password" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-10">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg">Login</button>
                             </div>
                         </div>
                     </form>
@@ -472,22 +472,22 @@
     
   
     <!-- jQuery -->
-    <script src="/Stulance/js/jquery.js"></script>
+    <script src="http://stulance.mybluemix.net/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/Stulance/js/bootstrap.min.js"></script>
+    <script src="http://stulance.mybluemix.net/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="/Stulance/js/jquery.easing.min.js"></script>
-    <script src="/Stulance/js/classie.js"></script>
-    <script src="/Stulance/js/cbpAnimatedHeader.js"></script>
+    <script src="http://stulance.mybluemix.net/js/jquery.easing.min.js"></script>
+    <script src="http://stulance.mybluemix.net/js/classie.js"></script>
+    <script src="http://stulance.mybluemix.net/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="/Stulance/js/jqBootstrapValidation.js"></script>
-    <script src="/Stulance/js/contact_me.js"></script>
+    <script src="http://stulance.mybluemix.net/js/jqBootstrapValidation.js"></script>
+    <script src="http://stulance.mybluemix.net/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/Stulance/js/freelancer.js"></script>
+    <script src="http://stulance.mybluemix.net/js/freelancer.js"></script>
 
 </body>
 
