@@ -13,10 +13,17 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
+<<<<<<< HEAD
     <link href="http://stulance.mybluemix.net/forwards/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="http://stulance.mybluemix.net/forwards/css/shop-homepage.css" rel="stylesheet">
+=======
+    <link href="/Stulance/forwards/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/Stulance/forwards/css/shop-homepage.css" rel="stylesheet">
+     <link href="/Stulance/css/freelancer.css" rel="stylesheet">
+>>>>>>> 63a8d4f6c084d530542367b2a5e961ecac56afc3
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,9 +76,12 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                	<h4><a href = "#">IT programming</a></h4>
+                	<ul>
+                    <li><a href="#" class="l">Category 1</a></li>
+                    <li><a href="#" class="l">Category 2</a></li>
+                    <li><a href="#" class="l">Category 3</a></li>
+                	</ul>
                 </div>
             </div>
 
