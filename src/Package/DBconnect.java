@@ -44,11 +44,12 @@ public class DBconnect {
 			}
 			else{
 				outPassword = rs.getString("PASSWORD");
+				System.out.println("password from db " + outPassword);
 				if(outPassword.isEmpty() || outPassword.equals(null)){
 					return "";
 				}
 				if(outPassword.equals(password)){
-					try{
+					/*try{
 						String firstName = "";
 						int userId = 0;
 						query = "select u.FIRSTNAME, l.USERID from USERDETAILS u, LOGINDETAILS l where l.USERNAME = " + "'" + username +"'" + " and u.USERID = l.USERID";
@@ -60,7 +61,8 @@ public class DBconnect {
 						return firstName + "," + userId;
 					}catch(Exception ee){
 						System.out.println("Error in fetching first name from userdetails " + ee);
-					}
+					}*/
+					return "ok";
 					
 				}
 				else{

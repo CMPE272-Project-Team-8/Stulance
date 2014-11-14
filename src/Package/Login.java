@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
 	//	String home = (String)session.getAttribute("backHome");
 	//	System.out.println("Home value at login" + home);
 		
-		if(nameAndId[0] != "" && nameAndId[1] !=""){
+		if(firstName.equals("ok")){
 		//	response.sendRedirect(response.encodeRedirectURL("/Ebuy_Inventory/transaction.jsp"));
 			/*if(home != null){
 				if (home.equals("home")){
@@ -88,7 +88,7 @@ public class Login extends HttpServlet {
 			response.setContentType("text/html");
 			PrintWriter out = response.getWriter();
 			out.println("<font size='6' color='red'>" + msg + "</font>");
-			response.sendRedirect(response.encodeRedirectURL("/Ebuy_Inventory/login.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("/test.jsp"));
 		}
 	}
 
