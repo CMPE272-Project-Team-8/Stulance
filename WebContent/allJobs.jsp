@@ -1,5 +1,10 @@
 
 <!DOCTYPE html>
+<%@page import="Package.GetCategoryAndField"%>
+<%@page import="Package.GetJobClass"%>
+<%@page import="java.util.ArrayList"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="en">
 
 <head>
@@ -61,14 +66,23 @@
 
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
+                <%		int count = -1, count2 = 0;
+						ArrayList<GetCategoryAndField> array =(ArrayList<GetCategoryAndField>)session.getAttribute("allJobs"); 
+						if(!array.isEmpty()){
+							for(GetCategoryAndField itr : array){
+								count = count+1;
+								count2 = count2+1;
+								        %>
                 <div class="list-group">
-                	<h4><a href = "/stulance/get/jobs/?category=itprogramming&field=all">IT programming</a></h4>
+                	<% 	if (count2< array.size() && (count == 0 || !array.get(count).getCategory().equals(array.get(count2).getCategory()))){ %>
+                	<h4><a href = "/stulance/get/jobs/?category=<%=itr.getCategory() %>&field=all"><%= itr.getCategory().toUpperCase() %></a></h4>
                 	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webprogramming" class="l">Web Programming</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webdesign" class="l">Web Design</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=mobileapp" class="l">Mobile Application</a></li>
+                	<%} %>		
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=<%=itr.getCategory() %>&field=<%=itr.getField() %>" class="l"><%= itr.getField().toUpperCase() %></a></li>                    		
                 	</ul>
                 </div>
+                	<% } %>
+               <% } %>
             </div>
 
             <div class="col-md-9">

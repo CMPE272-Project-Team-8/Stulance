@@ -1,18 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>Stulance</display-name>
+  <display-name>StulanceCopy</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-   
   </welcome-file-list>
- 	<servlet>
-	    <description>Login Servlet</description>
-	    <servlet-name>Login</servlet-name>
-	    <servlet-class>Package.Login</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-	    <servlet-name>Login</servlet-name>
-	    <url-pattern>/validate</url-pattern>
-  	</servlet-mapping>
+  <servlet>
+    <description>Login Servlet</description>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>Package.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/validate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Find Jobs</description>
+    <servlet-name>findJobs</servlet-name>
+    <servlet-class>Package.Jobs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>findJobs</servlet-name>
+    <url-pattern>/get/jobs/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Job Proposal</description>
+    <servlet-name>Proposal</servlet-name>
+    <servlet-class>Package.Proposal</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Proposal</servlet-name>
+    <url-pattern>/userProposal</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>My Stulance</description>
+    <servlet-name>MyStulance</servlet-name>
+    <servlet-class>Package.MyStulance</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyStulance</servlet-name>
+    <url-pattern>/myStulance/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Register</description>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>Package.Register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Personality Result</description>
+    <servlet-name>PersonalityResult</servlet-name>
+    <servlet-class>Package.PersonalityResult</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalityResult</servlet-name>
+    <url-pattern>/PersonalityResult</url-pattern>
+  </servlet-mapping>
 </web-app>

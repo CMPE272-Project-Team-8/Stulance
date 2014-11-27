@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html5 lang="en">
 
 <head>
 
@@ -13,13 +13,13 @@
     <title>Freelancer </title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="http://stulance.mybluemix.net/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="http://stulance.mybluemix.net/css/freelancer.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="http://stulance.mybluemix.net/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Stulance</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +61,7 @@
                         <a href="#portfolio">Find Freelancer</a>
                         </li>
                         <li class="page-scroll">
-                        <a href="#findLancer">Find Work</a>
+                        <a href="#findJobs">Find Work</a>
                         </li>
                         </ul>
                     </li>
@@ -81,20 +81,22 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+	
     <!-- Header -->
     <header>
+    	<hr>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="http://stulance.mybluemix.net/img/profile.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
-                        <hr class="star-light">
+        	
+          <div class="row">
+           <div class="col-lg-12">
+           		<img class="img-responsive" src="<%=request.getContextPath()%>/img/profile.png" alt="">
+                 	<div class="intro-text">
+                        <span class="name"><font size="5">Start Freelancing</font></span>
+                        <hr>
                         <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
                     </div>
                 </div>
-            </div>
+          </div>  
         </div>
     </header>
 
@@ -109,13 +111,15 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link" data-toggle="modal">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=all" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/cabin.png" class="img-responsive" alt="">
+                        <img src="<%=request.getContextPath()%>/img/portfolio/itprogramming1.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> IT Programming</b></font>
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -125,7 +129,83 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/cake.png" class="img-responsive" alt="">
+                        <img src="<%=request.getContextPath()%>/img/portfolio/lifestyle1.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Lifestyle</b></font>
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=writingtranslation&field=all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/writingandtranslation.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Writing and Translation</b></font>
+                    </a>
+                </div>
+                
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/enggandmanu.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Engg and Manufacturing</b></font>
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/household.png" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Household</b></font>
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=designmultimedia&field=all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/design&multimedia.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Design and Multimedia</b></font>
+                    </a>
+                </div>
+                
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/event_manager.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Event Management</b></font>
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/adminandsupport1.png" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Admin Support</b></font>
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -135,7 +215,9 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/circus.png" class="img-responsive" alt="">
+                        <img src="<%=request.getContextPath()%>/img/portfolio/repairs-and-maintenance.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Maintainance and Repair</b></font>
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -145,35 +227,17 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://stulance.mybluemix.net/img/portfolio/submarine.png" class="img-responsive" alt="">
+                        <img src="<%=request.getContextPath()%>/img/portfolio/fun.jpg" class="img-responsive" alt="">
+                        <hr>
+                       <font size="3"><b> Fun and Entertainment</b></font>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-	<!-- Find Freelancer -->
+	<!-- Find Jobs -->
 		 <!-- Portfolio Grid Section -->
-    <section class="success" id="findLancer">
+    <section class="success" id="findJobs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -183,7 +247,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link" data-toggle="modal">
+                    <a href="<%=request.getContextPath()%>/get/jobs/all" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -263,19 +327,19 @@
                 <div class="col-lg-5 col-lg-offset-1">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" action='validate'>
+                    <form  action="validate">
                         <div class="row control-group">
-                            <div class="form-group col-xs-10 floating-label-form-group controls">
+                            <div class="form-group col-xs-10 floating-label-form-group ">
                                 <label>username</label>
                                 <input type="text" class="form-control" name="username" placeholder="User Name" id="name" >
-                                <p class="help-block text-danger"></p>
+                                <!-- <p class="help-block text-danger"></p>  -->
                             </div>
                         </div>
                         <div class="row control-group">
-                            <div class="form-group col-xs-10 floating-label-form-group controls">
+                            <div class="form-group col-xs-10 floating-label-form-group ">
                                 <label>password</label>
                                 <input type="password" class="form-control" name="password" placeholder="Password" id="password" >
-                                <p class="help-block text-danger"></p>
+                                <!-- <p class="help-block text-danger"></p>  -->
                             </div>
                         </div>
                         <br>
@@ -291,26 +355,26 @@
                 <div class="col-lg-5 col-lg-offset-1">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="register" id="contactForm" action="<%=request.getContextPath()%>/register.jsp">
                         
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
-                                <label>username</label>
-                                <input type="text" class="form-control" placeholder="User Name" id="username" required data-validation-required-message="Please enter your email address.">
+                                <label>Email</label>
+                                <input type="text" class="form-control" placeholder="User Name" name="email" id="username" required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>pasword</label>
-                                <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please enter your phone number.">
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="password" required data-validation-required-message="Please enter your phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>confirm password</label>
-                                <input type="password" class="form-control" placeholder="Confirm Password" id="cPassword" required data-validation-required-message="Please enter your phone number.">
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPass" id="cPassword" required data-validation-required-message="Please enter your phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -318,7 +382,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-10">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg">Continue</button>
                             </div>
                         </div>
                     </form>
@@ -472,23 +536,23 @@
     
   
     <!-- jQuery -->
-    <script src="http://stulance.mybluemix.net/js/jquery.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="http://stulance.mybluemix.net/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://stulance.mybluemix.net/js/jquery.easing.min.js"></script>
-    <script src="http://stulance.mybluemix.net/js/classie.js"></script>
-    <script src="http://stulance.mybluemix.net/js/cbpAnimatedHeader.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.easing.min.js"></script>
+    <script src="<%=request.getContextPath()%>/js/classie.js"></script>
+    <script src="<%=request.getContextPath()%>/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="http://stulance.mybluemix.net/js/jqBootstrapValidation.js"></script>
-    <script src="http://stulance.mybluemix.net/js/contact_me.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jqBootstrapValidation.js"></script>
+   
 
     <!-- Custom Theme JavaScript -->
-    <script src="http://stulance.mybluemix.net/js/freelancer.js"></script>
+    <script src="<%=request.getContextPath()%>/js/freelancer.js"></script>
 
 </body>
 
-</html>
+</html5>

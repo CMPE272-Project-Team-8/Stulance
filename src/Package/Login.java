@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
 		/*String quantity = (String)request.getSession().getAttribute("quantity");
 		HttpSession session = request.getSession();
 		request.setAttribute("quantity", quantity);*/
+		HttpSession session = request.getSession();
 		String inUserName = request.getParameter("username");
 		String inPasswd =  request.getParameter("password");
 		String msg = "Hello ";
@@ -59,13 +60,31 @@ public class Login extends HttpServlet {
 		String encryptPass =  pass.encryptPassword(inPasswd);
 		
 		DBconnect db = new DBconnect();
+		String userId = "";
+		String name = "";
 		String firstName = db.verifyLogin(inUserName, inPasswd);
 		String[] nameAndId = firstName.split(",");
 		
 	//	String home = (String)session.getAttribute("backHome");
 	//	System.out.println("Home value at login" + home);
 		
-		if(firstName.equals("ok")){
+		
+		name = nameAndId[0];
+		if(nameAndId.length == 2){
+			userId = nameAndId[1];
+			System.out.println("name is "+ name + "  id is "+ userId);
+		}
+		else{
+			userId = "1145";
+			System.out.println("name is "+ name + "  id is "+ userId);
+		}
+		
+		session.setAttribute("userId", userId);
+		session.setAttribute("userName", name);
+		session.setAttribute("login", "true");
+		
+		
+		if(!name.equals("")){
 		//	response.sendRedirect(response.encodeRedirectURL("/Ebuy_Inventory/transaction.jsp"));
 			/*if(home != null){
 				if (home.equals("home")){
@@ -78,7 +97,8 @@ public class Login extends HttpServlet {
 			else{*/
 			//	session.setAttribute("userName", nameAndId[0]);
 			//	session.setAttribute("userID", Integer.parseInt(nameAndId[1]));
-				response.sendRedirect("http://stulance.mybluemix.net/index.jsp");
+				String url = "/get/jobs/all";
+				request.getRequestDispatcher(url).forward(request, response);
 			//	request.getRequestDispatcher("http://stulance.mybluemix.net/index.jsp").forward(request, response);
 		//	}
 			

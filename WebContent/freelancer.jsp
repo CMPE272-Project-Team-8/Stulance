@@ -1,5 +1,9 @@
 
 <!DOCTYPE html>
+<%@page import="Package.GetJobClass"%>
+<%@page import="java.util.ArrayList"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="en">
 
 <head>
@@ -10,10 +14,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Stulance - Get your Job done</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="http://stulance.mybluemix.net/forwards/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="http://stulance.mybluemix.net/forwards/css/shop-homepage.css" rel="stylesheet">
      <link href="http://stulance.mybluemix.net/css/freelancer.css" rel="stylesheet">
@@ -22,7 +26,7 @@
 
 <body>
 
-    <!-- Navigation -->
+  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">Stulance</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,22 +57,57 @@
         </div>
         <!-- /.container -->
     </nav>
-
+	<hr>
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <p class="lead" style="color:#2c3e50"><b>Categories</b></p>
                 <div class="list-group">
-                	<h4><a href = "/stulance/get/jobs/?category=itprogramming&field=all">IT programming</a></h4>
-                	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webprogramming" class="l">Web Programming</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webdesign" class="l">Web Design</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=mobileapp" class="l">Mobile Application</a></li>
-                	</ul>
+                	<h5><a href = "<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=all">IT programming</a></h5>
                 </div>
+				
+				<div class="list-group">
+                	<h5><a href = "/stulance/get/jobs/?category=designmultimedia&field=all">Design & Multimedia</h5>
+                </div>
+				
+				<div class="list-group">
+                	<h5><a href = "/stulance/get/jobs/?category=writingtranslation&field=all">Writing & Translation</a></h5>
+                </div>
+				
+				<div class="list-group">
+                	<h5><a href = "/stulance/get/jobs/?category=adminsupport&field=all">Admin Support</a></h5>
+                	<ul>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=techsupport" class="l">Technical Support</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=ofcmgmt" class="l">Office Management</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=transcription" class="l">Transcription</a></li>
+                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=dataentry" class="l">Data entry</a></li>
+                 	</ul>
+                </div>
+				
+				<div class="list-group">
+                	<h5><a href = "/stulance/get/jobs/?category=engineeringmanufacturing&field=all">Engineering & Manufacturing</a></h5>
+                	<ul>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=productdesign" class="l">Product Design</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=electrical" class="l">Electrical</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=cad" class="l">CAD</a></li>
+                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=mechanical" class="l">Mechanical</a></li>
+                 	</ul>
+                </div>
+				
+				<div class="list-group">
+                	<h5><a href = "/stulance/get/jobs/?category=household&field=all">Houshold Work</a></h5>
+                	<ul>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=painting" class="l">Painting</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=plumbing" class="l">Plumbing</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=lawnmowing" class="l">Lawn Mowing</a></li>
+                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=locksmith" class="l">Locksmith</a></li>
+					<li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=otherhoushold" class="l">Other Houshold Work</a></li>
+                 	</ul>
+                </div>
+				
             </div>
 
             <div class="col-md-9">
@@ -84,13 +123,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="<%=request.getContextPath()%>/forwards/images/freelancer1.jpeg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="<%=request.getContextPath()%>/forwards/images/freelancer2.jpeg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="<%=request.getContextPath()%>/forwards/images/freelancer3.jpeg" alt="">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -103,15 +142,14 @@
                     </div>
 
                 </div>
-				<% for  (int i =1; i<3; i++){ %>
-                <div class="well">
-
+             		 
+                <div class="well" style="color:#2c3e50">
+                					        
+							
                     <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
+                        <a class="btn btn-success">Apply Now</a>
                     </div>
-
-                    <hr>
-
+							<hr>   
                     <div class="row">
                         <div class="col-md-12">
                             <span class="glyphicon glyphicon-star"></span>
@@ -121,17 +159,13 @@
                             <span class="glyphicon glyphicon-star-empty"></span>
                             Anonymous
                             <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                         
                         </div>
                     </div>
 
                     <hr>
-  
-
-                </div>
-				<%} %>
-                
-            </div>
+                 </div>
+			</div>
 
         </div>
 
