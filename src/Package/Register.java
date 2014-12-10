@@ -31,6 +31,7 @@ public class Register extends HttpServlet {
 		String university = request.getParameter("university");
 		String rate = request.getParameter("rate");
 		String payBasis = request.getParameter("payBasis");
+		String postJobCall = request.getParameter("postJobCall");
 		String fields = "";
 		String tagLine = request.getParameter("tagline");
 		String[] checkFields = request.getParameterValues("fields");
@@ -55,13 +56,19 @@ public class Register extends HttpServlet {
 		if (!nameAndId[1].isEmpty()){
 			session.setAttribute("userId", nameAndId[1]);
 		}
+		if(!nameAndId[0].isEmpty())
 		session.setAttribute("userName", nameAndId[0]);
 		session.setAttribute("login", "true");
 		
+		if(postJobCall != null && postJobCall.equalsIgnoreCase("true")){
+			db.close();
+			request.getRequestDispatcher("/postYourJob.jsp").forward(request, response);
+			}
+		else{
 		String url = "/get/jobs/all";
 		db.close();
 		request.getRequestDispatcher(url).forward(request, response);
-		
+		}
 		
     }
     

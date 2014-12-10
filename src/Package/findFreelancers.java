@@ -42,8 +42,8 @@ public class findFreelancers extends HttpServlet {
 		
 		List<GetJobClass> jobs = new ArrayList<GetJobClass>();
 		
-		DBconnect db = new DBconnect();
-		jobs = db.getJobs(category,field);
+		//DBconnect db = new DBconnect();
+		//jobs = db.getJobs(category,field);
 		
 		
 	}

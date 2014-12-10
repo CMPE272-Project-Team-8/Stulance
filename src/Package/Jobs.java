@@ -40,6 +40,8 @@ public class Jobs extends HttpServlet {
 		String caller = request.getHeader("referer");
 		System.out.println("Caller URL is " + caller);
 		HttpSession session = request.getSession();
+		String userid = "";
+		int intUserId = 0;
 		DBconnect db = new DBconnect();
 		String queryString = request.getQueryString();
 		System.out.println("query string is " + queryString);
@@ -48,8 +50,17 @@ public class Jobs extends HttpServlet {
 		String login = (String)request.getSession().getAttribute("login");
 		if (login == null){
 			session.setAttribute("login", "false");
+		} else if (login.equalsIgnoreCase("true")) {
+			userid = (String)session.getAttribute("userId");
 		}
-		
+		try{
+		if (userid !=  null) {
+			intUserId = Integer.parseInt(userid);
+		}
+		}catch(Exception E){
+			System.out.println("cannot convert to integer "+ E);
+			intUserId = 0;
+		}
 		String category = request.getParameter("category");
 		String field = request.getParameter("field");
 		
@@ -65,7 +76,7 @@ public class Jobs extends HttpServlet {
 		List<GetJobClass> jobs = new ArrayList<GetJobClass>();
 		
 	//	cAndF = db.getAllCategoriesAndFields();
-		jobs = db.getJobs(category,field);
+		jobs = db.getJobs(category,field, intUserId);
 		//Collections.sort(cAndF, GetCategoryAndField.categorySort);
 		System.out.println("joblist is " + jobs.toString());
 		

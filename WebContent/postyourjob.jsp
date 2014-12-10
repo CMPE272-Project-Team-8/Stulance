@@ -10,32 +10,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer </title>
-
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>  
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
+ 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>  
  
+	<title>Stulance - Get your Job done</title>
 
-
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
 
 </head>
 
@@ -52,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Stulance</a>
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">Stulance</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,26 +49,18 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#">Find</a>
-                        <ul>
-                        <li class="page-scroll">
-                        <a href="#portfolio">Find Freelancer</a>
-                        </li>
-                        <li class="page-scroll">
-                        <a href="#findJobs">Find Work</a>
-                        </li>
-                        </ul>
+                    <%if(request.getSession().getAttribute("login").equals("true")) { %>
+                    <li>
+                        <a href="#">Welcome, <%= request.getSession().getAttribute("userName") %></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+                     <li>
+                        <a href="<%=request.getContextPath() %>/myStulance/?jobs=all">My Stulance</a>
                     </li>
+                    
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="<%= request.getContextPath()%>/logout">Logout</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#login">Login/Signup</a>
-                    </li>
+                    <%} %>
                    
                 </ul>
             </div>
@@ -88,6 +68,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <hr>
 	
     <!-- Header -->
         
@@ -100,7 +81,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Post Your Job</h2>
+                    <h3>Post Your Job</h3>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -108,22 +89,16 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="contactForm2" id="contactForm2" novalidate>
+                    <form name="contactForm2" id="contactForm2" method="post" action='submitJob'>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name Your Job</label>
-                                <input type="text" class="form-control" placeholder="Name Your Job" id="name3" name="name3" >
+                                <input type="text" class="form-control" placeholder="Name Your Job" id="name3" name="jobName" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Describe it</label>
-                                <textarea rows="5" class="form-control" placeholder="Describe it" id="message" ></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
+                       
                         <br>
                         
               
@@ -135,72 +110,55 @@
                      <input type="text" class="form-control" placeholder="Category" id="category" >            
                               
                                 <select name = "category" style="width: 300px;">
-                       			
-    							
-    								
-    							
-  
-  <!-- have to delete this --> <option value=227,361>Event Management</option>
-    								
-    								
-    												
-    								
-    								
-    								
-    								
-    								
-  			<!-- have to use this --><option value=227,360>Other Household</option>
-  						
-  									
-  									
+            						
   									<optgroup label="Lifestyle">
-    								<option value = 228,370   >Personal Shopper </option>
-    								<option value=228,369>Makeup, Styling & Beauty</option>
-    								<option value=228,371>Animal Care & Pets</option>
-    								<option value=228,367>Car Pickup/Drops</option>
+    								<option value = "228,370" >Personal Shopper </option>
+    								<option value="228,369">Makeup, Styling & Beauty</option>
+    								<option value="228,371">Animal Care & Pets</option>
+    								<option value="228,367">Car Pickup/Drops</option>
   									</optgroup>
   				
   									<optgroup label="Homecare & Household">
-    								<option value=227,364>Personal Tutor</option>
-    								<option value=227,365>Shopping Assistant</option>
-    								<option value=227,      >Caretaker</option>
-    								<option value=227,363>Baby Sitting</option>
-    								<option value=227,  >Massage therapist</option>
-    								<option value=227,  >Nurse</option>
-    								<option value=227,362>House Cleaning</option>
-<!-- name changed to chef from cooking assistant --><option value=227,368>Chef</option>
-<!-- name changed to cooking services from electronic services --><option value=227,366>Computer Services</option>
-									<option value=227,358>Lawn Mowing</option>
-    								
+    								<option value="227,364">Personal Tutor</option>
+    								<option value="227,365">Shopping Assistant</option>
+    								<option value="227,372">Caretaker</option>
+    								<option value="227,363">Baby Sitting</option>
+    								<option value="227,373">Massage therapist</option>
+    								<option value="227,374">Nurse</option>
+    								<option value="227,362">House Cleaning</option>
+<!-- name changed to chef from cooking assistant --><option value="227,368">Chef</option>
+<!-- name changed to cooking services from electronic services --><option value="227,366">Computer Services</option>
+									<option value="227,358">Lawn Mowing</option>
+    								<option value="227,360">Other Household</option>
     								</optgroup>
   				
   									<optgroup label="Advertising">
-    								<option value=229,      >Flyers & handouts</option>
-    								<option value=229,      >Human Billboard</option>
-    								<option value=229,      >Outdoor Advertising</option>
+    								<option value="229,375">Flyers & handouts</option>
+    								<option value="229,376">Human Billboard</option>
+    								<option value="229,377">Outdoor Advertising</option>
     								</optgroup>
   					
  <!-- earlier event mgmt was the subcategory --><optgroup label="Event Management">
-    								<option value=230,     >Fund Raisers</option>
-    								<option value=230,      >Compere</option>
-    								<option value=230,       >Stage Preparations</option>
+    								<option value="230,378">Fund Raisers</option>
+    								<option value="230,379">Compere</option>
+    								<option value="230,380">Stage Preparations</option>
     								</optgroup>
   									
   									<optgroup label="Maintenance & Repairs">
-    								<option value=231,356>Painting</option>
-    								<option value=231,357>Plumbing</option>
-    								<option value=231   >Carpenter</option>
-    								<option value=231    >Electrician</option>
-    									<option value=231,359>Locksmith</option>
-  									<option value=231,    >Restoration </option>
+    								<option value="231,356">Painting</option>
+    								<option value="231,357">Plumbing</option>
+    								<option value="231,381">Carpenter</option>
+    								<option value="231,382">Electrician</option>
+    									<option value="231,359">Locksmith</option>
+  									<option value="231,383">Restoration </option>
     								
   									</optgroup>
   				
   									<optgroup label="Fun & Entertainment">
-    								<option value=232,      >Personal Messenger</option>
-    								<option value=232,     >Mimic Artist</option>
-    								<option value=232,     >Pranks</option>
-    								<option value=232,    >Dancers</option>
+    								<option value="232,384">Personal Messenger</option>
+    								<option value="232,385">Mimic Artist</option>
+    								<option value="232,386">Pranks</option>
+    								<option value="232,387">Dancers</option>
   									</optgroup>
   				
   									
@@ -208,71 +166,87 @@
   									
   									
   									<optgroup label="IT programming">
-    								<option value=222,333 >Web Programming</option>
-    								<option value=222,334>Web Designing</option>
-    								<option value=222,335>Mobile App Development</option>
-    								<option value=222,336>Testing & QA </option>
-  									<option value=222,337>Database Management</option>
-    								<option value=222,338>Business Intelligence</option>
+    								<option value="222,333">Web Programming</option>
+    								<option value="222,334">Web Designing</option>
+    								<option value="222,335">Mobile App Development</option>
+    								<option value="222,336">Testing & QA </option>
+  									<option value="222,337">Database Management</option>
+    								<option value="222,338">Business Intelligence</option>
   									</optgroup>
   				
   									<optgroup label="Design & Multimedia">
-    								<option value=223,339>Graphic Design</option>
-    								<option value=223,340>Photography</option>
-    								<option value=223,341>Brochures</option>
-    								<option value=223,342>Animation</option>
-  									<option value=223,343>Videos</option>
+    								<option value="223,339">Graphic Design</option>
+    								<option value="223,340">Photography</option>
+    								<option value="223,341">Brochures</option>
+    								<option value="223,342">Animation</option>
+  									<option value="223,343">Videos</option>
     								</optgroup>
   					
   									<optgroup label="Writing Translation">
-    								<option value=224,344>Article Writing</option>
-    								<option value=224,345>E-books and blogs</option>
-    								<option value=224,346>Translation</option>
-    								<option value=224,347>Copywriting</option>
+    								<option value="224,344">Article Writing</option>
+    								<option value="224,345">E-books and blogs</option>
+    								<option value="224,346">Translation</option>
+    								<option value="224,347">Copywriting</option>
     								</optgroup>
   				
   									<optgroup label="Admin Support">
-    								<option value=225,348>Tech Support</option>
-    								<option value=225,349>Office Management</option>
-    								<option value=225,350>Transcription</option>
-    								<option value=225,351>Data Entry</option>
+    								<option value="225,348">Tech Support</option>
+    								<option value="225,349">Office Management</option>
+    								<option value="225,350">Transcription</option>
+    								<option value="225,351">Data Entry</option>
   									</optgroup>
   				
   									<optgroup label="Engineering & Manufacturing">
-    								<option value=226,352>Product Design</option>
-    								<option value=226,353>Electrical</option>
-    								<option value=226,354>CAD</option>
-    								<option value=226,355>Mechanical</option>
+    								<option value="226,352">Product Design</option>
+    								<option value="226,353">Electrical</option>
+    								<option value="226,354">CAD</option>
+    								<option value="226,355">Mechanical</option>
   									</optgroup>
   				
   								</select>
-                                
+  								<hr>
+  								<input type="text" class="form-control" placeholder="Deadline" id="deadline" >
+                                <select name="deadline" style="width:150px; border:1px solid #2c3e50;">	
+									<option value="oneday">Within 1 day</option>
+								    <option value="3days">Within 3 Days</option>
+								    <option value="1week">1 Week</option>
+								    <option value="15days">15 Days</option>
+								    <option value="1month">1 Month</option>
+								    <option value="3months">3 Months</option>
+								    <option value="other">Other</option>
+								</select>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         
                             <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Price</label>
-                                <input type="tel" class="form-control" placeholder="Price" id="price" >
+                       <label>Price</label>
+                       <input type="tel" class="form-control" name="price" placeholder="Price" id="price" >
                        <br>
-                       <input type="radio" name="sex" value="fixed" >Fixed Basis
+                       <input type="radio" name="payType" value="fixed" >Fixed Basis
                        <br>      
 
-						<input type="radio" name="sex" value="hourly">Hourly Basis
+						<input type="radio" name="payType" value="hourly">Hourly Basis
                               
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
            
-                         
+                          <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Describe it</label>
+                                <textarea rows="5" name="desc" class="form-control" placeholder="Describe it" id="desc" ></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
                         
                         
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" name="send2" id="send2" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" name="send2" id="send2" class="btn btn-success btn-lg">Submit</button>
                             </div>
                         </div>
                     </form>

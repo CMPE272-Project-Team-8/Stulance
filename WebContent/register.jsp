@@ -10,19 +10,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Register </title>
-
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>  
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
+ 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>  
  
+	<title>Stulance - Get your Job done</title>
 
-
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -60,26 +57,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#">Find</a>
-                        <ul>
-                        <li class="page-scroll">
-                        <a href="#portfolio">Find Freelancer</a>
-                        </li>
-                        <li class="page-scroll">
-                        <a href="#findJobs">Find Work</a>
-                        </li>
-                        </ul>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#login">Login/Signup</a>
                     </li>
                    
                 </ul>
@@ -213,8 +190,9 @@
                         </div>
                         <br>
                         <input type="hidden" name="email" value="<%=request.getParameter("email") %>">
-                        <input type="hidden" name="password" value="<%=request.getParameter("password")%>">
-                        <input type="hidden" name="confirmPass" value="<%=request.getParameter("confirmPass")%>">
+                        <input type="hidden" name="password" value="<%=request.getParameter("password1")%>">
+                        <input type="hidden" name="confirmPass" value="<%=request.getParameter("confirmPass2")%>">
+                        <input type="hidden" name="postJobCall" value="<%=request.getParameter("postJobCall")%>">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">

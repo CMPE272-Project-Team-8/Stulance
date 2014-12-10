@@ -10,29 +10,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stulance - Get your job done </title>
+    <title>Stulance - Get your Job done</title>
 
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>  
-
+ 
 <script>
 
 $(function() {
@@ -84,77 +78,73 @@ $(function() {
 
   });
  
+
+
+
 $(function() {
-    $("#loginform").validate({
-    rules: {
-    		username : {	required : true,
-    			email: true
-      		},
-	           password: {
-            	required: true,
-            	minlength: 5
-            }
-    },
-    messages: {
-    	 username: { required:  "Please enter your first name",
-         	minlength : "should be atleast 2 characters"
-         },
-        username: { required:  "Please enter your first name",
-        	minlength : "should be atleast 2 characters"
-        },
-        password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
-        }
-				
-    },
-    submitHandler: function(form) {
-        form.submit();
-    }
-});
-});
+	  
+    // Setup form validation on the #register-form element
+    $("#register-form").validate({
+    
+        // Specify the validation rules
+        rules: {
  
-$(function() {
-    $("#register").validate({
-    rules: {
-    		email : {	required : true , 
-    		email : true
-      		},
-	           password1: {
-            	required: true,
-            	minlength: 5
+        	username: { required : true,
+            			minlength : 2 
+            	},            
+            password2: {
+                required: true,
+                minlength: 5
+		
             },
-			confirmPass2: { 
-	        	required : true,		
-		    	equalTo : "#password1"
-		    }
-    },
-    messages: {
-    	 email: { required:  "Please enter your first name",
-         	minlength : "should be atleast 2 characters"
-         },
-        username: { required:  "Please enter your first name",
-        	minlength : "should be atleast 2 characters"
+			confirmPass: { 
+		      required : true,		
+			 equalTo : "#password2"
+			},
+			 emailID : {required : true , email : true}
+		
+			 
+            
         },
-        password1: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
-        },
-		confirmPass2: { 
-				required : "Please provide a password",
-				equalTo: "Please enter the same password as above"
-				}
+		//contactForm username password cPassword 
+        
+        // Specify the validation error messages
+        messages: {
+            username: { required:  "Please enter your first name",
+            	minlength : "should be atleast 2 characters"
+            	
+            },
+            
+            password2: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
 				
-    },
-    submitHandler: function(form) {
-        form.submit();
-    }
-});
-});
- 
+            },
+			confirmPass: { required : "Please provide a password",
+			
+					equalTo: "Please enter the same password as above"
+					},
+					emailID : "Please enter a valid email address "
+          
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    
+    });
+
+  });
+  
+
+
+
+
 </script>
 
-
+    
+    
+    
 </head>
 
 <body id="page-top" class="index">
@@ -180,35 +170,26 @@ $(function() {
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#">Jobs</a>
+                        <a href="#">Find</a>
                         <ul>
                         <li class="page-scroll">
-                        <a href="#findJobs">View Jobs</a>
+                        <a href="#portfolio">Find Freelancer</a>
                         </li>
                         <li class="page-scroll">
-                        <a href="#postJobs">Post Jobs</a>
+                        <a href="#findJobs">Find Work</a>
                         </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">About</a>
                     </li>
-                    <% String login=(String) request.getSession().getAttribute("login");
-                    	if (login != null && login.equalsIgnoreCase("true")){%>
-                    <li>
-                        <a href="<%=request.getContextPath() %>/myStulance/?jobs=all">My Stulance</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="<%= request.getContextPath()%>/logout">Logout</a>
-                    </li>
-                   <%} else {%>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#login">Login/Register</a>
+                        <a href="#login">Login/Signup</a>
                     </li>
-                    <%} %>
+                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -225,9 +206,9 @@ $(function() {
            <div class="col-lg-12">
            		<img class="img-responsive" src="<%=request.getContextPath()%>/img/profile.png" alt="">
                  	<div class="intro-text">
-                        <span class="name"><font size="5">Start Freelancing Today!</font></span>
-                        <hr style="border-top: solid 2px; max-width: 700px;">
-                        <span class="skills">Web Developer - Graphic Artist - Shopping Assistance</span>
+                        <span class="name"><font size="5">Start Freelancing</font></span>
+                        <hr>
+                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
                     </div>
                 </div>
           </div>  
@@ -235,110 +216,73 @@ $(function() {
     </header>
 
     <!-- Portfolio Grid Section -->
-    <section id="findJobs">
+    <section id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>View Jobs</h3>
+                    <h3>Portfolio</h3>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/itprogramming1.jpg" class="img-responsive" alt="">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <hr>
-                       <font size="3"><b> IT Programming</b></font>
-                       
+                        <img src="<%=request.getContextPath()%>/img/portfolio/Admin_Support.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
                     <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/lifestyle1.jpg" class="img-responsive" alt="">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <hr>
-                       <font size="3"><b> Lifestyle</b></font>
-                       
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=writingtranslation&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/writingandtranslation.jpg" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Writing and Translation</b></font>
-                       
-                    </a>
-                </div>
-                
-                <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/enggandmanu.jpg" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Engg and Manufacturing</b></font>
-                       
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/household.png" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Household</b></font>
-                       <hr>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=designmultimedia&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/design&multimedia.jpg" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Design and Multimedia</b></font>
-                    </a>
-                </div>
-                
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/event_manager.jpg" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Event Management</b></font>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=all" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/adminandsupport1.png" class="img-responsive" alt="">
-                        </div>
-                        <hr>
-                       <font size="3"><b> Admin Support</b></font>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/writing.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
                     <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/repairs-and-maintenance.jpg" class="img-responsive" alt="">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <hr>
-                       <font size="3"><b> Maintainance and Repair</b></font>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/manufacturing.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
                     <a href="#" class="portfolio-link" data-toggle="modal">
-                        <div id="rightImage">
-                        <img src="<%=request.getContextPath()%>/img/portfolio/fun.jpg" class="img-responsive" alt="">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <hr>
-                       <font size="3"><b> Fun and Entertainment</b></font>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/Programming.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/design.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -346,30 +290,77 @@ $(function() {
     </section>
 	<!-- Find Jobs -->
 		 <!-- Portfolio Grid Section -->
-    <section class="success" id="postJobs">
-    
+    <section class="success" id="findJobs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>Post Your Job</h3>
+                    <h3>Find Freelancer</h3>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>You can post your jobs here and get it done by the Students at optimal price and quality deliverable benefitial for both. </p>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="<%=request.getContextPath()%>/get/jobs/all" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cabin.png" class="img-responsive" alt="">
+                    </a>
                 </div>
-                <div class="col-lg-4">
-                    <p>The categories range from highly technical functionality like develeoping a realtime application to small house hold activities like baby sitting or shopping Assistance!!</p>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/cake.png" class="img-responsive" alt="">
+                    </a>
                 </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="<%=request.getContextPath()%>/postjob" class="btn btn-lg btn-outline">
-                         Post Your Job!
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/circus.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/game.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/safe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://stulance.mybluemix.net/img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
         </div>
-     
     </section>
 	<!-- FindLancer Ends -->
 	
@@ -380,18 +371,20 @@ $(function() {
 	 <div class="container">
           <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>Login or Register</h3>
+                    <h3>Login/Register</h3>
                     <hr class="star-primary">
 				</div>
            </div> 
             <div class="row">
             	
                 <div class="col-lg-5 col-lg-offset-1">
-                    <form  name="loginform" id="loginform" action="validate">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form  action="validate">
                         <div class="row control-group">
-                            <div class="form-group col-xs-10 floating-label-form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" name="username" placeholder="Email" id="name" >
+                            <div class="form-group col-xs-10 floating-label-form-group ">
+                                <label>username</label>
+                                <input type="text" class="form-control" name="username" placeholder="User Name" id="name" >
                                 <!-- <p class="help-block text-danger"></p>  -->
                             </div>
                         </div>
@@ -413,26 +406,28 @@ $(function() {
                 </div>
                 <!-- Register Section -->
                 <div class="col-lg-5 col-lg-offset-1">
-                    <form name="register" id="register" action="<%=request.getContextPath()%>/register.jsp">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="register" id="register-form" action="<%=request.getContextPath()%>/register.jsp" novalidate>
                         
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email" name="email" id="rEmail" >
+                                <label>Username</label>
+                                <input type="text" class="form-control" placeholder="User Name" name="username" id="username" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>pasword</label>
-                                <input type="password" class="form-control" name="password1" placeholder="Password" id="password1" >
+                                <input type="password" class="form-control" name="password2" placeholder="Password" id="password2" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-10 floating-label-form-group controls">
                                 <label>confirm password</label>
-                                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPass2" id="confirmPass2" >
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPass" id="confirmPass" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -440,7 +435,7 @@ $(function() {
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-10">
-                                <button type="submit" class="btn btn-success btn-lg">Continue</button>
+                                <button type="submit" name="submit" value ="submit" class="btn btn-success btn-lg">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -465,10 +460,15 @@ $(function() {
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Stulance is reinventing the way we work. Today more than 2 million busines tap into stulance to find, hire, and pay the world's best stulancers, making it easier than ever to build successful companies and thriving careers</p>
+                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Innovative global enterprises, small businesses and startups alike can connect with the world's most talenterd developers, designers, writers, admins and more. If your job can be done online, you can hire the best person to do it.</p>
+                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Download Theme
+                    </a>
                 </div>
             </div>
         </div>
@@ -480,7 +480,7 @@ $(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Us</h2>
+                    <h2>Contact Me</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -492,7 +492,7 @@ $(function() {
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name4" id="name4" >
+                                <input type="text" class="form-control" placeholder="Name" name="name4" id="name4" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -506,7 +506,7 @@ $(function() {
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message4" name="message4" ></textarea>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message4" name="message4"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -514,7 +514,7 @@ $(function() {
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" name="send" value="send"  class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" name="send" value="send" class="btn btn-success btn-lg">Send</button>
                             </div>
                         </div>
                     </form>
@@ -530,7 +530,7 @@ $(function() {
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
-                        <p>San Farnando, CA 95112</p>
+                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -547,21 +547,23 @@ $(function() {
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
                             </li>
-                            
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Stulance Team</h3>
-                        <p>Stulance is a web app created by a group of SJSU students</p>
+                        <h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
                     </div>
                 </div>
             </div>
         </div>
-       <div class="footer-below">
+        <div class="footer-below">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; stulance.mybluemix.net . All Rights Reserved
+                        Copyright &copy; Your Website 2014
                     </div>
                 </div>
             </div>
@@ -577,24 +579,29 @@ $(function() {
 
     <!-- Portfolio Modals Removed -->
     
-    
-  
-    <!-- jQuery -->
-  
+   <!-- jQuery -->
+    <!-- this below is the website which doesnt helps in validation plug-in -->
+
+
     <!-- Bootstrap Core JavaScript -->
-    <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+   <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="<%=request.getContextPath()%>/js/jquery.easing.min.js"></script>
-    <script src="<%=request.getContextPath()%>/js/classie.js"></script>
-    <script src="<%=request.getContextPath()%>/js/cbpAnimatedHeader.js"></script>
+        <script src="<%=request.getContextPath()%>/js/jquery.easing.min.js"></script>
+        <script src="<%=request.getContextPath()%>/js/classie.js"></script>
+        <script src="<%=request.getContextPath()%>/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="<%=request.getContextPath()%>/js/jqBootstrapValidation.js"></script>
-   
+   src="<%=request.getContextPath()%>/js/jqBootstrapValidation.js"></script>
+  
+    <script src="http://stulance.mybluemix.net/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="<%=request.getContextPath()%>/js/freelancer.js"></script>
+
+    
+  
+   
 
 </body>
 

@@ -7,14 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Stulance - Get your Job done</title>
+	<title>Stulance - Get your Job done</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -36,13 +40,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
+                        <a href="<%=request.getContextPath()%>/postjob">Post Your Job</a>
                     </li>
                 </ul>
             </div>
@@ -57,49 +55,14 @@
         <div class="row">
 			
             <div class="col-md-3">
-                <p class="lead" style="color:#2c3e50"><b>Categories</b></p>
+                <p class="lead" style="color:#2c3e50"><b>Go to .. </b></p>
                 <div class="list-group">
-                	<h5><a href = "<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=all">IT programming</a></h5>
+                	<h5><a href = "<%=request.getContextPath()%>/index.jsp">Home</h5>
+                </div>
+                <div class="list-group">
+                	<h5><a href = "<%=request.getContextPath()%>/get/jobs/?jobs=all">All Jobs</a></h5>
                 </div>
 				
-				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=designmultimedia&field=all">Design & Multimedia</h5>
-                </div>
-				
-				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=writingtranslation&field=all">Writing & Translation</a></h5>
-                </div>
-				
-				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=adminsupport&field=all">Admin Support</a></h5>
-                	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=techsupport" class="l">Technical Support</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=ofcmgmt" class="l">Office Management</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=transcription" class="l">Transcription</a></li>
-                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=adminsupport&field=dataentry" class="l">Data entry</a></li>
-                 	</ul>
-                </div>
-				
-				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=engineeringmanufacturing&field=all">Engineering & Manufacturing</a></h5>
-                	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=productdesign" class="l">Product Design</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=electrical" class="l">Electrical</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=cad" class="l">CAD</a></li>
-                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=engineeringmanufacturing&field=mechanical" class="l">Mechanical</a></li>
-                 	</ul>
-                </div>
-				
-				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=household&field=all">Houshold Work</a></h5>
-                	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=painting" class="l">Painting</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=plumbing" class="l">Plumbing</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=lawnmowing" class="l">Lawn Mowing</a></li>
-                	<li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=locksmith" class="l">Locksmith</a></li>
-					<li><a href="<%=request.getContextPath()%>/get/jobs/?category=household&field=otherhoushold" class="l">Other Houshold Work</a></li>
-                 	</ul>
-                </div>
 				
             </div>
 
@@ -125,6 +88,14 @@
 								    <option value="3months">3 Months</option>
 								    <option value="other">Other</option>
 								</select>
+								<label>Price</label>
+		                       <input type="tel" class="form-control" name="price" placeholder="Price" id="price" >
+		                       <br>
+		                       <input type="radio" name="payType" value="fixed" >Fixed Basis
+		                       <br>
+								<input type="radio" name="payType" value="hourly">Hourly Basis
+                              
+                          
 								<hr>
                                 <button type="submit" class="btn btn-success btn-lg">Submit</button>
                          	</form>

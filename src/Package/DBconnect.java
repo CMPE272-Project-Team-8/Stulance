@@ -24,7 +24,7 @@ public class DBconnect {
 	public DBconnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/ad_a65dfb72eb8d753", "b2d2fd7ffbad33", "95cac4ee");
+			con = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/ad_22a4bacfb7822a9", "b5bdf0a93bbbaa", "1db0f32a");
 			st =con.createStatement();
 		}catch(Exception ex){
 			System.out.println("Error :" + ex);
@@ -135,24 +135,50 @@ public class DBconnect {
 	 * @param field
 	 * @return
 	 */
-	protected List<GetJobClass> getJobs(String category, String field){
+	protected List<GetJobClass> getJobs(String category, String field, int userId){
 		
 		List<GetJobClass> jobs = new ArrayList<GetJobClass>();
-		if(category.equalsIgnoreCase("all") && field.equalsIgnoreCase("all")){
-			query="select * from jobs";
+		int categoryId  = 0;
+		int fieldId = 0;
+		String[] op = {"111","222"};
+		if (userId == 0){
+			if(category.equalsIgnoreCase("all") && field.equalsIgnoreCase("all")){
+				query="select * from jobs";
+			}
+			else {
+				String output = getCategoryAndField(category,field);
+					op = output.split(",");
+					if (!op[0].isEmpty())
+					categoryId = Integer.parseInt(op[0]);
+			//	System.out.println("category id = " + categoryId + "Field ID = " + fieldId );
+				if(field.equalsIgnoreCase("all")){
+					query="select * from jobs where categoryid = " + categoryId;
+				}
+				else{
+					if (!op[1].isEmpty())
+					fieldId = Integer.parseInt(op[1]);
+					query="select * from jobs where categoryid = " + categoryId + " and " +  " fieldid = " + fieldId ;
+				}
+			}
 		}
 		else {
-			String output = getCategoryAndField(category,field);
-			String[] op = output.split(",");
-			int categoryId = Integer.parseInt(op[0]);
-			
-		//	System.out.println("category id = " + categoryId + "Field ID = " + fieldId );
-			if(field.equalsIgnoreCase("all")){
-				query="select * from jobs where categoryid = " + categoryId;
+			if(category.equalsIgnoreCase("all") && field.equalsIgnoreCase("all")){
+				query="select * from jobs where postuserid <> " + userId;
 			}
-			else{
-				int fieldId = Integer.parseInt(op[1]);
-				query="select * from jobs where categoryid = " + categoryId + " and " +  " fieldid = " + fieldId ;
+			else {
+				String output = getCategoryAndField(category,field);
+					op = output.split(",");
+					if (!op[0].isEmpty())
+					categoryId = Integer.parseInt(op[0]);
+			//	System.out.println("category id = " + categoryId + "Field ID = " + fieldId );
+				if(field.equalsIgnoreCase("all")){
+					query="select * from jobs where categoryid = " + categoryId + " and postuserid <> " + userId;
+				}
+				else{
+					if (!op[1].isEmpty())
+					fieldId = Integer.parseInt(op[1]);
+					query="select * from jobs where categoryid = " + categoryId + " and " +  " fieldid = " + fieldId + " and postuserid <> " + userId;
+				}
 			}
 		}
 		try{
@@ -163,7 +189,7 @@ public class DBconnect {
 				g.setJobId(rs.getInt("JOBID"));
 				g.setPostUserId(rs.getInt("POSTUSERID"));
 				g.setAssignUserId(rs.getInt("ASSIGNEDUSERID"));
-				g.setDeadline(rs.getInt("DEADLINE"));
+				g.setDeadlines(rs.getString("DEADLINE"));
 				g.setDescription(rs.getString("DESCRIPTION"));
 				g.setPay(rs.getInt("PAY"));
 				g.setStatus(rs.getString("STATUS"));
@@ -172,6 +198,7 @@ public class DBconnect {
 				g.setAddTime(rs.getString("TIME"));
 				g.setLocation(rs.getString("LOCATION"));
 				g.setFieldId(rs.getInt("FIELDID"));
+				g.setPayType(rs.getString("PAYTYPE"));
 				jobs.add(g);
 			}
 		}catch(Exception ee){
@@ -254,11 +281,11 @@ public class DBconnect {
 	 * @return
 	 */
 	
-	protected int postUserProposal(int pUserId, int pJobId, String proposal, String proposalTime){
+	protected int postUserProposal(int pUserId, int pJobId, String proposal, String proposalTime, int price, String payType){
 		int status = 0;
 		
-		query = "Insert into PROPOSAL (proposeduserid, jobid, proposal, proposaltime) values "
-				+ "(" + pUserId + "," + pJobId + ",'"+ proposal + "'," + "'" + proposalTime + "')";
+		query = "Insert into PROPOSAL (proposeduserid, jobid, proposal, proposaltime, price, paytype) values "
+				+ "(" + pUserId + "," + pJobId + ",'"+ proposal + "','" + proposalTime + "'," + price + ",'" + payType + "')";
 		System.out.println("under postUserProposal query " + query);
 		try{
 			status = st.executeUpdate(query);
@@ -300,7 +327,7 @@ public class DBconnect {
 				g.setJobId(rs.getInt("JOBID"));
 				g.setPostUserId(rs.getInt("POSTUSERID"));
 				g.setAssignUserId(rs.getInt("ASSIGNEDUSERID"));
-				g.setDeadline(rs.getInt("DEADLINE"));
+				g.setDeadlines(rs.getString("DEADLINE"));
 				g.setDescription(rs.getString("DESCRIPTION"));
 				g.setPay(rs.getInt("PAY"));
 				g.setStatus(rs.getString("STATUS"));
@@ -331,14 +358,15 @@ public class DBconnect {
 		List<UserAndProposal> proposals = new ArrayList<UserAndProposal>();
 		
 		if (proposal.equalsIgnoreCase("proposalsForMe")){
-			query = "select j.jobid, j.title, p.proposal, p.proposaltime, u.userid, u.firstname, u.lastname, u.university, u.fields, u.experience,"
+			query = "select j.jobid, j.title, p.proposalid, p.proposal, p.proposaltime, u.userid, u.firstname, u.lastname, u.university, u.fields, u.experience,"
 					+ "u.hourlyrate, u.city, u.email from jobs j, proposal p, userdetails u where j.postuserid = " + userId + " and "
-							+ "j.jobid = p.jobid and p.proposeduserid = u.userid";
+							+ "j.jobid = p.jobid and p.proposeduserid = u.userid and p.status <> 'assigned'";
 			
 			try{
 				rs = st.executeQuery(query);
 				while (rs.next()){
 					UserAndProposal up = new UserAndProposal();
+					up.setProposalId(rs.getInt("PROPOSALID"));
 					up.setJobId(rs.getInt("JOBID"));
 					up.setJobTitle(rs.getString("TITLE"));
 					up.setProposal(rs.getString("PROPOSAL"));
@@ -385,7 +413,12 @@ public class DBconnect {
 		return proposals;
 	}
 	
+	
 	/**
+	 * 
+	 * @param userId
+	 * @param interest
+	 * @return
 	 * Update the interest for the user
 	 */
 	
@@ -414,4 +447,53 @@ public class DBconnect {
 		}
 	}
 	
+	/**
+	 * Inserting new job
+	 * @param userId
+	 * @param desc
+	 * @param pay
+	 * @param category
+	 * @param field
+	 * @param jobName
+	 * @param deadline
+	 * @param payType
+	 * @return
+	 */
+	
+	protected int postJob(int userId, String desc , int pay, int category, int field, String jobName, String deadline, String payType){
+		int status = 0;
+		
+		query = "Insert into Jobs (postuserid, description, pay, status, categoryid, fieldid, title, deadline, paytype) values ("
+				+ userId + ",'" + desc+"'," + pay + ",'unassigned'," + category + "," + field + ",'" + jobName + "','" +deadline + "','" +payType + "' )";
+		
+		try{
+			status = st.executeUpdate(query);
+			return status;
+		}catch(Exception ex){
+			System.out.println("unable to insert job for user "+ ex);
+		}
+		
+		return status;
+	}
+	
+	protected int awardJob(int proposerid, int jobid, int proposalId){
+		int status = 0;
+		query = "update proposal set status = 'assigned' where proposalid = " + proposalId;
+		System.out.println(query);
+		try{
+			status = st.executeUpdate(query);
+			if(status == 1){
+				query = "update jobs set assigneduserid = " + proposerid + " and status = 'assigned' where jobid = " + jobid;
+				System.out.println(query);
+				try{
+					status = st.executeUpdate(query);
+				}catch(Exception ex){
+					System.out.println("unable to update assigneduserid for job "+ jobid);
+				}
+			}
+		}catch(Exception ex){
+			System.out.println("unable to update status for job "+ jobid);
+		}
+		return status;
+	}
 }

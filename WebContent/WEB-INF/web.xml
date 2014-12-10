@@ -59,4 +59,40 @@
     <servlet-name>PersonalityResult</servlet-name>
     <url-pattern>/PersonalityResult</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Post Jobs for calling the postjob page and checking if user is logged in</description>
+    <servlet-name>Postjob</servlet-name>
+    <servlet-class>Package.Postjob</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Postjob</servlet-name>
+    <url-pattern>/postjob</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Submit Job</description>
+    <servlet-name>SubmitJob</servlet-name>
+    <servlet-class>Package.SubmitJob</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitJob</servlet-name>
+    <url-pattern>/submitJob</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>logout servlet</description>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>Package.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Award Job</description>
+    <servlet-name>AwardJob</servlet-name>
+    <servlet-class>Package.AwardJob</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AwardJob</servlet-name>
+    <url-pattern>/awardJob</url-pattern>
+  </servlet-mapping>
 </web-app>

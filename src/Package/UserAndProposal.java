@@ -8,6 +8,7 @@ package Package;
  */
 public class UserAndProposal {
 	private int jobId;
+	private int proposalId;
 	private String jobTitle;
 	private String Proposal;
 	private String proposalTime;
@@ -189,6 +190,12 @@ public class UserAndProposal {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getProposalId() {
+		return proposalId;
+	}
+	public void setProposalId(int proposalId) {
+		this.proposalId = proposalId;
 	}
 	
 

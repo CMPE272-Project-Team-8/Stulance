@@ -21,7 +21,13 @@
     <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
-     <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    
+     
 
 </head>
 
@@ -43,15 +49,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
+                	<li>
+                        <a href="<%=request.getContextPath()%>/postjob">Post Your Job</a>
                     </li>
-                    <li>
-                        <a href="#">Services</a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <%String login= (String)request.getSession().getAttribute("login");
+                    if(login != null && login.equals("true")) { %>
+                    <li class="page-scroll">
+                        <a href="<%= request.getContextPath()%>/logout">Logout</a>
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
+                    <%} else{ %>
+                     <li class="page-scroll">
+                        <a href="<%=request.getContextPath()%>/login.jsp">Login/Register</a>
                     </li>
+                    <%} %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -64,40 +76,43 @@
 
         <div class="row">
 
-            <div class="col-md-3">
+             <div class="col-md-3">
                 <p class="lead" style="color:#2c3e50"><b>Categories</b></p>
                 <div class="list-group">
-                	<h5><a href = "<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=all">My Jobs</a></h5>
+                	<h5><a href = "#">As a Client</a></h5>
                 	<ul>
-                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=all" class="l">All Jobs</a></li>
-                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=proposals" class="l">Proposals</a></li>
+                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=all" class="l">Posted Jobs</a></li>
+                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=proposalsForMe" class="l">Received Proposals</a></li>
                     <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=completed" class="l">Completed Jobs</a></li>   
 					</ul>
                 </div>
-				
 				<div class="list-group">
-                	<h5><a href = "/stulance/get/jobs/?category=designmultimedia&field=all">Account Settings</h5>
+                	<h5><a href = "#">As a Student</a></h5>
                 	<ul>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=designmultimedia&field=graphicdesign" class="l">Change Password</a></li>
-                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=designmultimedia&field=graphicdesign" class="l">Update Profile</a></li>
+                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=myJobs" class="l">Assigned Jobs</a></li>
+                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=myProposals" class="l">My Proposals</a></li>
+                    <li><a href="<%=request.getContextPath()%>/myStulance/?jobs=completedByMe" class="l">Completed Jobs</a></li>   
 					</ul>
+                </div>
+                <div class="list-group">
+                	<h5><a href = "<%=request.getContextPath()%>/personalitySurvey.jsp">Discover Your Interest</h5>
                 </div>				
             </div>
 
             <div class="col-md-9">  
-             <%
-						ArrayList<UserAndProposal> array =(ArrayList<UserAndProposal>)session.getAttribute("proposals"); 
-						if(!array.isEmpty()){
-							for(UserAndProposal itr : array){
+            <form method= "post" action="<%=request.getContextPath()%>/awardJob">
+    <%
+	ArrayList<UserAndProposal> array =(ArrayList<UserAndProposal>)session.getAttribute("proposals"); 
+		if(!array.isEmpty()){
+			for(UserAndProposal itr : array){
 								        %>
-				<form method= "post" action="<%=request.getContextPath()%>/proposal.jsp"> 
                 <div class="well" style="color:#2c3e50">
                 	<h5><b>Title : </b> <%= itr.getJobTitle() %></h5>
                 	<hr>
                 	<font size="3"><b> Proposal :</b> <%= itr.getProposal() %></font><br><br>
 					<font size="3"><b> Estimated Completion : </b><%= itr.getProposalTime() %></font>
 					<hr>
-					<font size="2"><b> Bidding User          : </b>  <%= itr.getFirstName()%> &nbsp; <%= itr.getLastName() %></font>
+					<font size="2"><b> Bidding User: </b>  <%= itr.getFirstName()%> &nbsp; <%= itr.getLastName() %></font>
 					<font size="2"><b>&nbsp; | &nbsp; Education :</b> <%= itr.getUniversity() %></font>
 					<font size="2"><b>&nbsp; | &nbsp; User Expertise : </b>$<%= itr.getFields() %></font><br> 
 					<font size="2"><b> Experience :</b> <%= itr.getExperience() %> &nbsp; years</font><br>
@@ -105,29 +120,24 @@
 					<font size="2"><b> Location : </b><%= itr.getCity() %></font>
 						
                     <div class="text-right">
+						<input type="hidden" name="proposerid" value=<%=itr.getUserId()%>> 
+						<input type="hidden" name="jobid" value=<%=itr.getJobId()%>>
+						<input type="hidden" name="proposalid" value=<%=itr.getProposalId()%>>  
                     	<button type="submit" class="btn btn-success btn-lg">Accept</button>
-                       
-                     <!--  <a class="btn btn-success">Apply Now</a> -->  
+                        
                     </div>
-							<hr>   
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                         
-                        </div>
-                    </div>
+					<hr>   
+                    
                 </div>
-                </form>
-				<%}%>
+                <%}%>	
+                <%} else { %>
+                	<div class="well" style="color:#2c3e50">
+                		<h5><b>No proposals</h5>
+                	</div>
+				
 			<%}%>
 			 </div>
-
+</form>
         </div>
 
     </div>

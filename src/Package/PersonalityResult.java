@@ -18,6 +18,7 @@ public class PersonalityResult extends HttpServlet {
 		int[] score_a = new int[7];
 		int[] score_b = new int[7];
 		String indicator = "";
+		String success = "";
 		
 		HashMap hm = new HashMap();
 		hm.put("ESTJ", "fundraisers, compere, stagepreparations, makeup, ofcmgmt");
@@ -72,6 +73,13 @@ public class PersonalityResult extends HttpServlet {
 			if (status <= 0) {
 				System.out.println("Error in updating the user interest field");
 			}
+			if(status == 1){
+				success = "Based on your Answers, your interest may fall in below category";
+				request.setAttribute("Interest", hm.get(indicator).toString());
+				request.setAttribute("success", success);
+				request.getRequestDispatcher("/success.jsp").forward(request, response);
+			}
+			db.close();
 			
 		} catch (Exception ex) {
 			System.out.println("Error :" + ex);

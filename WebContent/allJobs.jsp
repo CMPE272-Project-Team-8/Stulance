@@ -15,13 +15,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Stulance - Get your Job done</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="http://stulance.mybluemix.net/forwards/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="http://stulance.mybluemix.net/forwards/css/shop-homepage.css" rel="stylesheet">
-     <link href="http://stulance.mybluemix.net/css/freelancer.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
 
 </head>
 

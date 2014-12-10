@@ -38,8 +38,13 @@ public class MyStulance extends HttpServlet {
 		DBconnect db = new DBconnect();
 		int intUserId=0;
 		String userId = (String)request.getSession().getAttribute("userId");
-		if(userId != null){
-			intUserId = Integer.parseInt(userId);
+		try{
+			if(userId != null){
+				intUserId = Integer.parseInt(userId);
+			}
+		}catch(Exception e){
+			System.out.println("Exception in mystulance service "+ e);
+			intUserId = 0;
 		}
 		if(inputJobs != null){
 			if (inputJobs.equalsIgnoreCase("all")){

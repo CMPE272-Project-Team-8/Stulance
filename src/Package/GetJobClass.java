@@ -16,6 +16,8 @@ public class GetJobClass implements Serializable {
 	private int deadline;
 	private String location;
 	private int fieldId;
+	private String deadlines;
+	private String payType;
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -116,6 +118,34 @@ public class GetJobClass implements Serializable {
 
 	public void setFieldId(int fieldId) {
 		this.fieldId = fieldId;
+	}
+
+	/**
+	 * @return the deadlines
+	 */
+	public String getDeadlines() {
+		return deadlines;
+	}
+
+	/**
+	 * @param deadlines the deadlines to set
+	 */
+	public void setDeadlines(String deadlines) {
+		this.deadlines = deadlines;
+	}
+
+	/**
+	 * @return the payType
+	 */
+	public String getPayType() {
+		return payType;
+	}
+
+	/**
+	 * @param payType the payType to set
+	 */
+	public void setPayType(String payType) {
+		this.payType = payType;
 	}
 
 	
