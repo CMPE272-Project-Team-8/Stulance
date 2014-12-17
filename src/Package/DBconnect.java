@@ -24,7 +24,7 @@ public class DBconnect {
 	public DBconnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/ad_22a4bacfb7822a9", "b5bdf0a93bbbaa", "1db0f32a");
+			con = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/ad_22a4bacfb7822a9", "xx", "1db0f32a");
 			st =con.createStatement();
 		}catch(Exception ex){
 			System.out.println("Error :" + ex);
