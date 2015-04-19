@@ -10,20 +10,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Stulance - Get your Job done</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="http://stulance.mybluemix.net/forwards/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="<%=request.getContextPath()%>/forwards/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="http://stulance.mybluemix.net/forwards/css/shop-homepage.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="<%=request.getContextPath()%>/forwards/css/shop-homepage.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -69,9 +66,12 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                	<h4><a href = "/stulance/get/jobs/?category=itprogramming&field=all">IT programming</a></h4>
+                	<ul>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webprogramming" class="l">Web Programming</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=webdesign" class="l">Web Design</a></li>
+                    <li><a href="<%=request.getContextPath()%>/get/jobs/?category=itprogramming&field=mobileapp" class="l">Mobile Application</a></li>
+                	</ul>
                 </div>
             </div>
 
@@ -146,23 +146,15 @@
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-
+      
     </div>
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="http://stulance.mybluemix.net/forwards/js/jquery-1.11.0.js"></script>
+    <script src="http://Stulance.mybluemix.net/forwards/js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="http://stulance.mybluemix.net/forwards/js/bootstrap.min.js"></script>
+    <script src="http://Stulance.mybluemix.net/forwards/js/bootstrap.min.js"></script>
 
 </body>
 

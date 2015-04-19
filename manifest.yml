@@ -2,7 +2,7 @@ applications:
 - disk_quota: 1024M
   host: Stulance
   name: Stulance
-  path: libertyDBApp.war
+  path: Stulance.war
   domain: mybluemix.net
   instances: 1
   memory: 512M
